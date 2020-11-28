@@ -54,15 +54,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainmenubar">
 
-        <ScrollView
-            android:id="@+id/scrollView2"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cryptoRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:visibility="visible"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:outlineProvider="bounds"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-        </ScrollView>
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

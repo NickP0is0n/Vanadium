@@ -12,8 +12,10 @@
     <color name="colorPrimaryDark">#83A3E3</color>
     <color name="colorAccent">#25568F</color>
     <color name="colorBackground">#FFFFFF</color>
-    <color name="colorButton">#FFFFFF</color>
+    <color name="colorButton">#BAA1A1</color>
     <color name="colorHeader">#FFFFFF</color>
     <color name="colorText">@android:color/black</color>
     <color name="colorListText">#25568F</color>
+    <color name="red">#DF1E26</color>
+    <color name="green">#3BFB26</color>
 </resources>
