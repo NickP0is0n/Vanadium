@@ -3,6 +3,7 @@ package live.nickp0is0n.cryptotracker.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import drewcarlson.coingecko.CoinGeckoService
 import kotlinx.android.synthetic.main.activity_crypto_list.*
 import live.nickp0is0n.cryptotracker.R
 import live.nickp0is0n.cryptotracker.adapter.CryptoAdapter
@@ -28,7 +29,6 @@ class CryptoListActivity : AppCompatActivity() {
         adapter.setItems(getCurrencies())
     }
 
-    private fun getCurrencies(): List<CryptoCurrency> {
-        TODO()
-    }
+    private fun getCurrencies(): List<CryptoCurrency> = intent.extras!!["currencyList"] as List<CryptoCurrency>
+
 }

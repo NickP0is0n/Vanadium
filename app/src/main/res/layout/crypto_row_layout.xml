@@ -82,7 +82,7 @@
             android:elevation="10dp"
             android:text="BTC"
             android:textColor="@color/textColorPrimary"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/cryptoLogo"
             app:layout_constraintTop_toTopOf="@+id/cryptoLogo" />
@@ -108,7 +108,7 @@
             android:elevation="10dp"
             android:text="15000.00$"
             android:textColor="@color/textColorPrimary"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/view2"
             app:layout_constraintTop_toTopOf="@+id/cryptoLogo" />
@@ -121,7 +121,7 @@
             android:elevation="10dp"
             android:text="Bitcoin"
             android:textColor="@color/textColorPrimary"
-            android:textSize="20sp"
+            android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@+id/shortName"
             app:layout_constraintTop_toTopOf="@+id/cryptoLogo" />
 
