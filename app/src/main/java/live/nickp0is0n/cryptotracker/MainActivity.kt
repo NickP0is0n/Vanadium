@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         coinData.id,
         coinData.symbol.toUpperCase(Locale.ROOT),
         coinData.name,
-        coinData.marketData?.currentPrice!!["usd"] ?: 0.00,
+        coinData.marketData?.currentPrice?.get("usd") ?: 0.00,
         roundNullable(coinData.marketData?.priceChangePercentage24h, 2),
         roundNullable(coinData.marketData?.priceChangePercentage7d, 2)
     )
