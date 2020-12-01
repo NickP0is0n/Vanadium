@@ -2,15 +2,13 @@ package live.nickp0is0n.cryptotracker
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import drewcarlson.coingecko.CoinGeckoService
 import drewcarlson.coingecko.models.coins.CoinFullData
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import live.nickp0is0n.cryptotracker.database.AppDatabase
 import live.nickp0is0n.cryptotracker.models.CryptoCurrency
 import live.nickp0is0n.cryptotracker.ui.CryptoListActivity
 import java.util.*
@@ -22,7 +20,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         lifecycleScope.launch {
-            val currencyList = getCurrencyList()
+            AppDatabase.initializeDatabase(this@MainActivity)
+            if (AppDatabase.database!!.cryptocurrencydao().getAll().isEmpty()) {
+                AppDatabase.database!!.cryptocurrencydao().insertAll(*getDemoCurrencyList().toTypedArray())
+            } //ДЕМО для тестирования во время разработки
+            val currencyList = getCurrencyListFromDatabase()
             val intent = Intent(this@MainActivity, CryptoListActivity::class.java)
             intent.putExtra("currencyList", currencyList)
             startActivity(intent)
@@ -30,7 +32,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    suspend fun getCurrencyList(): ArrayList<CryptoCurrency> {
+    suspend fun getCurrencyListFromDatabase(): ArrayList<CryptoCurrency> {
+        val service = CoinGeckoService()
+        val dbList = AppDatabase.database!!.cryptocurrencydao().getAll() as ArrayList<CryptoCurrency>
+        for (i in 0 until dbList.size) {
+            dbList[i] = getCryptoCurrencyFromCoinData(service.getCoinById(dbList[i].id, marketData = true))
+        }
+        return dbList
+    }
+
+    suspend fun getDemoCurrencyList(): ArrayList<CryptoCurrency> {
         val service = CoinGeckoService()
         val coinData = service.getCoinById(id = "bitcoin", marketData = true)
 

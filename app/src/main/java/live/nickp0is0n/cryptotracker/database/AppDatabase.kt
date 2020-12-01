@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import live.nickp0is0n.cryptotracker.models.CryptoCurrency
 
 object AppDatabase {
-    private var database: SQLiteDatabase? = null
+    var database: SQLiteDatabase? = null
 
     fun initializeDatabase(context: Context) {
         if (database != null) throw Exception("App database is already initialized.")
@@ -15,7 +15,7 @@ object AppDatabase {
             database = Room.databaseBuilder(
                     context,
                     SQLiteDatabase::class.java, "currency-list"
-                    ).build()
+                    ).allowMainThreadQueries().build()
         }
     }
 }

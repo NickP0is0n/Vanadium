@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import live.nickp0is0n.cryptotracker.models.CryptoCurrency
+import java.util.ArrayList
 
 @Dao
 interface CryptoCurrencyDao {
