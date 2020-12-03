@@ -1,6 +1,7 @@
 package live.nickp0is0n.cryptotracker.adapter
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,12 +17,14 @@ import kotlinx.coroutines.withContext
 import live.nickp0is0n.cryptotracker.R
 import live.nickp0is0n.cryptotracker.models.AdvancedCryptoCurrency
 import live.nickp0is0n.cryptotracker.models.CryptoCurrency
+import live.nickp0is0n.cryptotracker.ui.AdvancedInfoActivity
 import java.util.*
 
 
-class CryptoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+class CryptoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private lateinit var currency: CryptoCurrency
 
+    val viewBorders: View = itemView.findViewById(R.id.view2)
     val shortName: TextView = itemView.findViewById(R.id.shortName)
     val fullName: TextView = itemView.findViewById(R.id.fullName)
     private val price: TextView = itemView.findViewById(R.id.price)
@@ -48,14 +51,13 @@ class CryptoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View
             "mipmap",
             itemView.context.packageName
         ))
-    }
 
-    override fun onClick(v: View?) {
-        if (v != null) {
+        viewBorders.setOnClickListener {
+            Log.d("debug", "IT CLICKED!")
             GlobalScope.launch {
                 val data = getAdvancedCryptoData()
-                val context = v.context
-                val intent = Intent(context, AdvancedCryptoCurrency::class.java)
+                val context = it.context
+                val intent = Intent(context, AdvancedInfoActivity::class.java)
                 intent.putExtra("info", data)
                 context.startActivity(intent)
             }
