@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity() {
     suspend fun getDemoCurrencyList(): ArrayList<CryptoCurrency> {
         val service = CoinGeckoService()
         val coinData = service.getCoinById(id = "bitcoin", marketData = true)
+        val data = service.getCoinMarketChartById("bitcoin", "usd", 7)
 
         return arrayListOf(
             getCryptoCurrencyFromCoinData(service.getCoinById("bitcoin", marketData = true)),
