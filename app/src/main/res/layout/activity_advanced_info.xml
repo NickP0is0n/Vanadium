@@ -133,6 +133,7 @@
         android:id="@+id/coinGraph"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainmenubar2" />
@@ -149,6 +150,7 @@
         android:elevation="10dp"
         android:focusable="true"
         android:foregroundTint="#A0C3CC"
+        android:onClick="onRemoveFromListButtonListener"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/advancedInfoTitle3" />

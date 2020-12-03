@@ -18,6 +18,9 @@ interface CryptoCurrencyDao {
     @Query("SELECT * FROM cryptocurrency WHERE short_name LIKE :name LIMIT 1")
     fun findByShortName(name: String): CryptoCurrency
 
+    @Query("UPDATE cryptocurrency SET current_price = :price, day_growth = :dayGrowth, week_growth = :weekGrowth WHERE id = :id")
+    fun update(id: String, price: Double, dayGrowth: Double, weekGrowth: Double)
+
     @Insert
     fun insertAll(vararg currencies: CryptoCurrency)
 
