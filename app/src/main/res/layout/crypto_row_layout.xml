@@ -21,7 +21,10 @@
             android:layout_width="0dp"
             android:layout_height="102dp"
             android:background="@drawable/rounded_menu_item"
+            android:clickable="true"
             android:elevation="10dp"
+            android:focusable="true"
+            android:foregroundTint="#73959F"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
