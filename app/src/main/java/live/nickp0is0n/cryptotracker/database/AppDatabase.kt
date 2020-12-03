@@ -15,7 +15,8 @@ object AppDatabase {
             database = Room.databaseBuilder(
                     context,
                     SQLiteDatabase::class.java, "currency-list"
-                    ).allowMainThreadQueries().build()
+                    ).allowMainThreadQueries() //WORKAROUND: Database doesn't work without this, even if in coroutine
+                    .build()
         }
     }
 }

@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CryptoTracker">
+        <activity android:name=".ui.AdvancedInfoActivity"></activity>
         <activity android:name=".ui.CryptoListActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

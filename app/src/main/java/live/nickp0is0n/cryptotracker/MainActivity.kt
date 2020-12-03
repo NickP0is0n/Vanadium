@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
             AppDatabase.initializeDatabase(this@MainActivity)
             if (AppDatabase.database!!.cryptocurrencydao().getAll().isEmpty()) {
                 AppDatabase.database!!.cryptocurrencydao().insertAll(*getDemoCurrencyList().toTypedArray())
-            } //ДЕМО для тестирования во время разработки
+            } //DEMO data for development purposes
             val currencyList = getCurrencyListFromDatabase()
             val intent = Intent(this@MainActivity, CryptoListActivity::class.java)
             intent.putExtra("currencyList", currencyList)
