@@ -31,6 +31,7 @@ class CryptoListActivity : AppCompatActivity() {
             val intent = Intent(this@CryptoListActivity, AddCurrencyActivity::class.java)
             intent.putExtra("coinList", coinList)
             startActivity(intent)
+            clProgressBar.isVisible = false
         }
     }
 

@@ -15,6 +15,7 @@
         android:layout_marginRight="30dp"
         android:background="@drawable/rounded_menu_item"
         android:elevation="15dp"
+        android:onClick="onSearchButtonClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view3" />
@@ -87,8 +88,8 @@
         android:textColor="@color/textColorPrimary"
         android:textSize="20sp"
         android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintStart_toEndOf="@+id/acLogoView"
+        app:layout_constraintTop_toTopOf="@+id/acLogoView" />
 
     <TextView
         android:id="@+id/acFullCoinNameView"
@@ -106,7 +107,7 @@
         app:layout_constraintTop_toTopOf="@+id/acShortCoinNameView" />
 
     <TextView
-        android:id="@+id/advancedInfoTitle9"
+        android:id="@+id/acWeeklyGrowthTitleView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -117,8 +118,8 @@
         android:textColor="@color/textColorPrimary"
         android:textSize="18sp"
         android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="@+id/advancedInfoTitle11"
-        app:layout_constraintTop_toBottomOf="@+id/advancedInfoTitle11" />
+        app:layout_constraintStart_toStartOf="@+id/acDailyGrowthTitleView"
+        app:layout_constraintTop_toBottomOf="@+id/acDailyGrowthTitleView" />
 
     <TextView
         android:id="@+id/acCurrentPriceView"
@@ -132,7 +133,7 @@
         android:textSize="18sp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@+id/acWeeklyGrowthView"
-        app:layout_constraintTop_toTopOf="@+id/advancedInfoTitle9" />
+        app:layout_constraintTop_toTopOf="@+id/acWeeklyGrowthTitleView" />
 
     <TextView
         android:id="@+id/acDailyGrowthView"
@@ -147,10 +148,10 @@
         android:textSize="18sp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@+id/view3"
-        app:layout_constraintTop_toTopOf="@+id/advancedInfoTitle10" />
+        app:layout_constraintTop_toTopOf="@+id/acCurrentPriceTitleView" />
 
     <TextView
-        android:id="@+id/advancedInfoTitle10"
+        android:id="@+id/acCurrentPriceTitleView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -162,11 +163,11 @@
         android:textColor="@color/textColorPrimary"
         android:textSize="18sp"
         android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/acLogoView"
         app:layout_constraintTop_toBottomOf="@+id/acShortCoinNameView" />
 
     <TextView
-        android:id="@+id/advancedInfoTitle11"
+        android:id="@+id/acDailyGrowthTitleView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -178,7 +179,7 @@
         android:textSize="18sp"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="@+id/acShortCoinNameView"
-        app:layout_constraintTop_toBottomOf="@+id/advancedInfoTitle10" />
+        app:layout_constraintTop_toBottomOf="@+id/acCurrentPriceTitleView" />
 
     <TextView
         android:id="@+id/acWeeklyGrowthView"
@@ -192,7 +193,7 @@
         android:textSize="18sp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@+id/acDailyGrowthView"
-        app:layout_constraintTop_toTopOf="@+id/advancedInfoTitle11" />
+        app:layout_constraintTop_toTopOf="@+id/acDailyGrowthTitleView" />
 
     <EditText
         android:id="@+id/acSearchCurrencyField"
@@ -210,7 +211,7 @@
         app:layout_constraintTop_toTopOf="@+id/view3" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/acLogoView"
         android:layout_width="81dp"
         android:layout_height="81dp"
         android:layout_marginStart="10dp"
@@ -233,7 +234,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/view3"
         app:layout_constraintEnd_toEndOf="@+id/view3"
         app:layout_constraintStart_toStartOf="@+id/view3"
-        app:layout_constraintTop_toBottomOf="@+id/advancedInfoTitle9" />
+        app:layout_constraintTop_toBottomOf="@+id/acWeeklyGrowthTitleView" />
 
     <TextView
         android:id="@+id/acAddToListText"
