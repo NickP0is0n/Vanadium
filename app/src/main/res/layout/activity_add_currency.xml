@@ -230,6 +230,7 @@
         android:layout_marginRight="30dp"
         android:background="@drawable/rounded_menu_item"
         android:elevation="15dp"
+        android:onClick="onAddToListButtonClick"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/view3"
         app:layout_constraintEnd_toEndOf="@+id/view3"

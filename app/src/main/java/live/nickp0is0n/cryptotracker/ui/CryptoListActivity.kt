@@ -28,18 +28,25 @@ class CryptoListActivity : AppCompatActivity() {
         clProgressBar.isVisible = true
         lifecycleScope.launch {
             val coinList = getCoinList()
+            val namesList = arrayListOf<String>()
+            val idList = arrayListOf<String>()
+            coinList.forEach {
+                namesList.add(it.second)
+                idList.add(it.first)
+            }
             val intent = Intent(this@CryptoListActivity, AddCurrencyActivity::class.java)
-            intent.putExtra("coinList", coinList)
+            intent.putExtra("coinList", namesList)
+            intent.putExtra("coinIdList", idList)
             startActivity(intent)
             clProgressBar.isVisible = false
         }
     }
 
-    private suspend fun getCoinList(): ArrayList<String> {
+    private suspend fun getCoinList(): ArrayList<Pair<String, String>> {
         val service = CoinGeckoService()
-        val coinList = arrayListOf<String>()
+        val coinList = arrayListOf<Pair<String, String>>()
         service.getCoinList().forEach {
-            coinList.add(it.name)
+            coinList.add(Pair(it.id, it.name))
         }
         return coinList
     }
