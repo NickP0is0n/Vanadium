@@ -1,6 +1,7 @@
 package live.nickp0is0n.cryptotracker.database
 
 import android.content.Context
+import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -10,7 +11,7 @@ object AppDatabase {
     var database: SQLiteDatabase? = null
 
     fun initializeDatabase(context: Context) {
-        if (database != null) throw Exception("App database is already initialized.")
+        if (database != null) Log.w("Database", "App database is already initialized.")
         else {
             database = Room.databaseBuilder(
                     context,
