@@ -16,7 +16,7 @@
         android:fontFamily="sans-serif-medium"
         android:text="Current price"
         android:textAlignment="viewStart"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/textColorPrimary"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/coinGraph" />
@@ -30,7 +30,7 @@
         android:fontFamily="sans-serif-black"
         android:text="0.0$"
         android:textAlignment="viewStart"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/textColorPrimary"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/advancedInfoTitle2" />
@@ -44,7 +44,7 @@
         android:fontFamily="sans-serif-black"
         android:text="0.0%"
         android:textAlignment="viewStart"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/textColorPrimary"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/advancedInfoTitle4" />
@@ -58,7 +58,7 @@
         android:fontFamily="sans-serif-black"
         android:text="0.0%"
         android:textAlignment="viewStart"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/textColorPrimary"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/advancedInfoTitle3" />
@@ -73,7 +73,7 @@
         android:fontFamily="sans-serif-medium"
         android:text="Weekly growth"
         android:textAlignment="viewStart"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/textColorPrimary"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/advancedInfoTitle4" />
@@ -88,7 +88,7 @@
         android:fontFamily="sans-serif-medium"
         android:text="Daily growth"
         android:textAlignment="viewStart"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/textColorPrimary"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/advancedInfoTitle2" />
@@ -112,7 +112,7 @@
         android:fontFamily="sans-serif-black"
         android:text="Cryptocurrency Name"
         android:textAlignment="viewStart"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/textColorPrimary"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/mainmenubar2"
         app:layout_constraintStart_toEndOf="@+id/cryptoLogoImageView"
