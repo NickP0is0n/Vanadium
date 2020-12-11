@@ -1,7 +1,6 @@
 package live.nickp0is0n.cryptotracker.database
 
 import drewcarlson.coingecko.CoinGeckoService
-import drewcarlson.coingecko.models.coins.CoinFullData
 import live.nickp0is0n.cryptotracker.adapter.CoinDataAdapter
 import live.nickp0is0n.cryptotracker.models.CryptoCurrency
 import java.util.*

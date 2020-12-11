@@ -7,14 +7,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
-import drewcarlson.coingecko.CoinGeckoService
 import kotlinx.android.synthetic.main.activity_add_currency.*
 import kotlinx.coroutines.launch
 import live.nickp0is0n.cryptotracker.R
-import live.nickp0is0n.cryptotracker.adapter.CoinDataAdapter
-import live.nickp0is0n.cryptotracker.database.CryptoCurrencyReceiver
-import live.nickp0is0n.cryptotracker.database.DatabaseManager
+import live.nickp0is0n.cryptotracker.database.CryptoCurrencyManager
 import live.nickp0is0n.cryptotracker.models.CryptoCurrency
+import live.nickp0is0n.cryptotracker.network.CryptoCurrencyDataFetcher
 import java.util.*
 
 class AddCurrencyActivity : AppCompatActivity() {
@@ -41,10 +39,8 @@ class AddCurrencyActivity : AppCompatActivity() {
                     .show()
             }
             else {
-                val currencyReceiver = CryptoCurrencyReceiver(DatabaseManager.database!!)
-                val service = CoinGeckoService()
-                val adapter = CoinDataAdapter(service.getCoinById(coinIdList[coinList.indexOf(reply)], marketData = true))
-                activeCurrency = adapter.getCryptoCurrency()
+                val dataFetcher = CryptoCurrencyDataFetcher()
+                activeCurrency = dataFetcher.fetchCurrency(coinIdList[coinList.indexOf(reply)])
                 runOnUiThread {
                     bindActiveCurrencyToUI()
                     showCurrencyInfoViews()
@@ -57,10 +53,9 @@ class AddCurrencyActivity : AppCompatActivity() {
         val currency = activeCurrency
         if (currency != null) {
             lifecycleScope.launch {
-                DatabaseManager.database!!.cryptocurrencydao().insertAll(currency)
+                CryptoCurrencyManager.add(currency)
                 val intent = Intent(this@AddCurrencyActivity, CryptoListActivity::class.java)
-                val receiver = CryptoCurrencyReceiver(DatabaseManager.database!!)
-                val currencyList = receiver.getCurrencyList()
+                val currencyList = CryptoCurrencyManager.getActualCurrencyData()
                 intent.putExtra("currencyList", currencyList)
                 startActivity(intent)
                 finish()

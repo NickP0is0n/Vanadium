@@ -2,6 +2,7 @@ package live.nickp0is0n.cryptotracker.database
 
 import android.content.Context
 import live.nickp0is0n.cryptotracker.models.CryptoCurrency
+import java.util.ArrayList
 
 object CryptoCurrencyManager {
     private var database: CryptoCurrencyDatabase? = null
@@ -19,6 +20,11 @@ object CryptoCurrencyManager {
 
     fun addAll(currencyList: List<CryptoCurrency>) {
         database!!.cryptocurrencydao().insertAll(*currencyList.toTypedArray())
+    }
+
+    suspend fun getActualCurrencyData(): ArrayList<CryptoCurrency> {
+        val receiver = CryptoCurrencyReceiver(database!!)
+        return receiver.getCurrencyList()
     }
 
     fun search(query: String) : CryptoCurrency? {
