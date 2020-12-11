@@ -11,7 +11,6 @@ import drewcarlson.coingecko.CoinGeckoService
 import kotlinx.android.synthetic.main.activity_crypto_list.*
 import kotlinx.coroutines.launch
 import live.nickp0is0n.cryptotracker.R
-import live.nickp0is0n.cryptotracker.adapter.CryptoAdapter
 import live.nickp0is0n.cryptotracker.models.CryptoCurrency
 
 class CryptoListActivity : AppCompatActivity() {

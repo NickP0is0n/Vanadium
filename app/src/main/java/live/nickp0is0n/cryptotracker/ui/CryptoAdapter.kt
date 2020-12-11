@@ -1,4 +1,4 @@
-package live.nickp0is0n.cryptotracker.adapter
+package live.nickp0is0n.cryptotracker.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

@@ -1,4 +1,4 @@
-package live.nickp0is0n.cryptotracker.adapter
+package live.nickp0is0n.cryptotracker.ui
 
 import android.content.Intent
 import android.util.Log
@@ -12,7 +12,6 @@ import kotlinx.coroutines.launch
 import live.nickp0is0n.cryptotracker.R
 import live.nickp0is0n.cryptotracker.models.AdvancedCryptoCurrency
 import live.nickp0is0n.cryptotracker.models.CryptoCurrency
-import live.nickp0is0n.cryptotracker.ui.AdvancedInfoActivity
 import java.util.*
 
 class CryptoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
