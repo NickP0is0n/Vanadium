@@ -11,8 +11,8 @@ import com.jjoe64.graphview.series.LineGraphSeries
 import kotlinx.android.synthetic.main.activity_advanced_info.*
 import kotlinx.coroutines.launch
 import live.nickp0is0n.cryptotracker.R
+import live.nickp0is0n.cryptotracker.database.CryptoCurrencyReceiver
 import live.nickp0is0n.cryptotracker.database.DatabaseManager
-import live.nickp0is0n.cryptotracker.database.getCurrencyListFromDatabase
 import live.nickp0is0n.cryptotracker.models.AdvancedCryptoCurrency
 import java.util.*
 
@@ -29,9 +29,10 @@ class AdvancedInfoActivity : AppCompatActivity() {
 
     fun onRemoveFromListButtonListener(view: View) {
         lifecycleScope.launch {
+            val currencyReceiver = CryptoCurrencyReceiver(DatabaseManager.database!!)
             DatabaseManager.database!!.cryptocurrencydao().delete(cryptoCurrencyInfo.currency)
             val intent = Intent(this@AdvancedInfoActivity, CryptoListActivity::class.java)
-            val currencyList = getCurrencyListFromDatabase()
+            val currencyList = currencyReceiver.getCurrencyList()
             intent.putExtra("currencyList", currencyList)
             startActivity(intent)
             finish()

@@ -1,20 +1,19 @@
 package live.nickp0is0n.cryptotracker.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import drewcarlson.coingecko.CoinGeckoService
 import kotlinx.android.synthetic.main.activity_add_currency.*
 import kotlinx.coroutines.launch
 import live.nickp0is0n.cryptotracker.R
+import live.nickp0is0n.cryptotracker.adapter.CoinDataAdapter
+import live.nickp0is0n.cryptotracker.database.CryptoCurrencyReceiver
 import live.nickp0is0n.cryptotracker.database.DatabaseManager
-import live.nickp0is0n.cryptotracker.database.getCryptoCurrencyFromCoinData
-import live.nickp0is0n.cryptotracker.database.getCurrencyListFromDatabase
 import live.nickp0is0n.cryptotracker.models.CryptoCurrency
 import java.util.*
 
@@ -32,7 +31,6 @@ class AddCurrencyActivity : AppCompatActivity() {
     }
 
     fun onSearchButtonClick(view: View) {
-        Log.d("debug", "i clicked")
         val request = acSearchCurrencyField.text.toString()
         lifecycleScope.launch {
             val reply = coinList.firstOrNull {
@@ -43,8 +41,10 @@ class AddCurrencyActivity : AppCompatActivity() {
                     .show()
             }
             else {
+                val currencyReceiver = CryptoCurrencyReceiver(DatabaseManager.database!!)
                 val service = CoinGeckoService()
-                activeCurrency = getCryptoCurrencyFromCoinData(service.getCoinById(coinIdList[coinList.indexOf(reply)], marketData = true))
+                val adapter = CoinDataAdapter(service.getCoinById(coinIdList[coinList.indexOf(reply)], marketData = true))
+                activeCurrency = adapter.getCryptoCurrency()
                 runOnUiThread {
                     bindActiveCurrencyToUI()
                     showCurrencyInfoViews()
@@ -59,7 +59,8 @@ class AddCurrencyActivity : AppCompatActivity() {
             lifecycleScope.launch {
                 DatabaseManager.database!!.cryptocurrencydao().insertAll(currency)
                 val intent = Intent(this@AddCurrencyActivity, CryptoListActivity::class.java)
-                val currencyList = getCurrencyListFromDatabase()
+                val receiver = CryptoCurrencyReceiver(DatabaseManager.database!!)
+                val currencyList = receiver.getCurrencyList()
                 intent.putExtra("currencyList", currencyList)
                 startActivity(intent)
                 finish()
