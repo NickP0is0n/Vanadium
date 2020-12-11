@@ -12,6 +12,7 @@ import kotlinx.coroutines.launch
 import live.nickp0is0n.cryptotracker.R
 import live.nickp0is0n.cryptotracker.models.AdvancedCryptoCurrency
 import live.nickp0is0n.cryptotracker.models.CryptoCurrency
+import live.nickp0is0n.cryptotracker.network.CryptoCurrencyDataFetcher
 import java.util.*
 
 class CryptoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -47,23 +48,13 @@ class CryptoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         viewBorders.setOnClickListener {
             GlobalScope.launch {
-                val data = getAdvancedCryptoData()
+                val dataFetcher = CryptoCurrencyDataFetcher()
+                val data = dataFetcher.getCoinMarketChart(currency, days = 3)
                 val context = it.context
                 val intent = Intent(context, AdvancedInfoActivity::class.java)
                 intent.putExtra("info", data)
                 context.startActivity(intent)
             }
         }
-    }
-
-    private suspend fun getAdvancedCryptoData(): AdvancedCryptoCurrency {
-        val service = CoinGeckoService()
-        val rawChart = service.getCoinMarketChartById(currency.id, "usd", 7)
-
-        val priceHistory = mutableListOf<Double>()
-        rawChart.prices.forEach {
-            priceHistory.add(it[1].toDouble())
-        }
-        return AdvancedCryptoCurrency(currency, priceHistory)
     }
 }
