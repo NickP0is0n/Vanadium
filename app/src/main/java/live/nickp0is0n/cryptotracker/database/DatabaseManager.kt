@@ -7,7 +7,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import live.nickp0is0n.cryptotracker.models.CryptoCurrency
 
-object AppDatabase {
+object DatabaseManager {
     var database: SQLiteDatabase? = null
 
     fun initializeDatabase(context: Context) {

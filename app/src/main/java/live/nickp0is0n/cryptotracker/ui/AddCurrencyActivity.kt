@@ -12,7 +12,7 @@ import drewcarlson.coingecko.CoinGeckoService
 import kotlinx.android.synthetic.main.activity_add_currency.*
 import kotlinx.coroutines.launch
 import live.nickp0is0n.cryptotracker.R
-import live.nickp0is0n.cryptotracker.database.AppDatabase
+import live.nickp0is0n.cryptotracker.database.DatabaseManager
 import live.nickp0is0n.cryptotracker.database.getCryptoCurrencyFromCoinData
 import live.nickp0is0n.cryptotracker.database.getCurrencyListFromDatabase
 import live.nickp0is0n.cryptotracker.models.CryptoCurrency
@@ -57,7 +57,7 @@ class AddCurrencyActivity : AppCompatActivity() {
         val currency = activeCurrency
         if (currency != null) {
             lifecycleScope.launch {
-                AppDatabase.database!!.cryptocurrencydao().insertAll(currency)
+                DatabaseManager.database!!.cryptocurrencydao().insertAll(currency)
                 val intent = Intent(this@AddCurrencyActivity, CryptoListActivity::class.java)
                 val currencyList = getCurrencyListFromDatabase()
                 intent.putExtra("currencyList", currencyList)

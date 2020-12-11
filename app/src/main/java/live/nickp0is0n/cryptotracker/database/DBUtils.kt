@@ -9,11 +9,11 @@ import kotlin.math.round
 
 suspend fun getCurrencyListFromDatabase(): ArrayList<CryptoCurrency> {
     val service = CoinGeckoService()
-    val dbList = AppDatabase.database!!.cryptocurrencydao().getAll() as ArrayList<CryptoCurrency>
+    val dbList = DatabaseManager.database!!.cryptocurrencydao().getAll() as ArrayList<CryptoCurrency>
     for (i in 0 until dbList.size) {
         with (dbList[i]) {
             dbList[i] = getCryptoCurrencyFromCoinData(service.getCoinById(id, marketData = true))
-            AppDatabase.database!!.cryptocurrencydao().update(id, currentPrice, dayGrowth, weekGrowth)
+            DatabaseManager.database!!.cryptocurrencydao().update(id, currentPrice, dayGrowth, weekGrowth)
         }
     }
     return dbList
