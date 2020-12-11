@@ -46,7 +46,6 @@ class CryptoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         ))
 
         viewBorders.setOnClickListener {
-            Log.d("debug", "IT CLICKED!")
             GlobalScope.launch {
                 val data = getAdvancedCryptoData()
                 val context = it.context
