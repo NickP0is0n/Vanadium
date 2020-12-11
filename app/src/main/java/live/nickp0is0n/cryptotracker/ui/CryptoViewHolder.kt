@@ -43,12 +43,20 @@ class CryptoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     }
 
     private fun initializePercentage() {
-        if (currency.dayGrowth < 0) twentyFourHoursPercent.setTextColor(itemView.resources.getColor(R.color.red))
-        else if (currency.dayGrowth > 0 ) twentyFourHoursPercent.setTextColor(itemView.resources.getColor(R.color.green))
+        if (currency.dayGrowth < 0) {
+            twentyFourHoursPercent.setTextColor(itemView.resources.getColor(R.color.red))
+        }
+        else if (currency.dayGrowth > 0 ) {
+            twentyFourHoursPercent.setTextColor(itemView.resources.getColor(R.color.green))
+        }
         twentyFourHoursPercent.text = "${currency.dayGrowth}%"
 
-        if (currency.weekGrowth < 0) sevenDaysPercent.setTextColor(itemView.resources.getColor(R.color.red))
-        else if (currency.weekGrowth > 0 ) sevenDaysPercent.setTextColor(itemView.resources.getColor(R.color.green))
+        if (currency.weekGrowth < 0) {
+            sevenDaysPercent.setTextColor(itemView.resources.getColor(R.color.red))
+        }
+        else if (currency.weekGrowth > 0 ) {
+            sevenDaysPercent.setTextColor(itemView.resources.getColor(R.color.green))
+        }
         sevenDaysPercent.text = "${currency.weekGrowth}%"
     }
 
