@@ -28,10 +28,21 @@ class CryptoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun bind(currency: CryptoCurrency) {
         this.currency = currency
+
+        initializeText()
+        initializePercentage()
+        initializeLogo()
+
+        setOnClickListener()
+    }
+
+    private fun initializeText() {
         shortName.text = currency.shortName
         fullName.text = currency.fullName
         price.text = "${currency.currentPrice}$"
+    }
 
+    private fun initializePercentage() {
         if (currency.dayGrowth < 0) twentyFourHoursPercent.setTextColor(itemView.resources.getColor(R.color.red))
         else if (currency.dayGrowth > 0 ) twentyFourHoursPercent.setTextColor(itemView.resources.getColor(R.color.green))
         twentyFourHoursPercent.text = "${currency.dayGrowth}%"
@@ -39,13 +50,17 @@ class CryptoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         if (currency.weekGrowth < 0) sevenDaysPercent.setTextColor(itemView.resources.getColor(R.color.red))
         else if (currency.weekGrowth > 0 ) sevenDaysPercent.setTextColor(itemView.resources.getColor(R.color.green))
         sevenDaysPercent.text = "${currency.weekGrowth}%"
+    }
 
+    private fun initializeLogo() {
         cryptoLogo.setImageResource(itemView.context.resources.getIdentifier(
-            (fullName.text as String).toLowerCase(Locale.ROOT).replace(' ', '_'),
-            "mipmap",
-            itemView.context.packageName
+                (fullName.text as String).toLowerCase(Locale.ROOT).replace(' ', '_'),
+                "mipmap",
+                itemView.context.packageName
         ))
+    }
 
+    private fun setOnClickListener() {
         viewBorders.setOnClickListener {
             GlobalScope.launch {
                 val dataFetcher = CryptoCurrencyDataFetcher()
