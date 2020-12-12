@@ -22,6 +22,17 @@ object CryptoCurrencyManager {
         database!!.cryptocurrencydao().insertAll(*currencyList.toTypedArray())
     }
 
+    fun updateIfAvailable(currencyList: List<CryptoCurrency>) {
+        currencyList.forEach {
+            database!!.cryptocurrencydao().update(
+                    it.id,
+                    it.currentPrice,
+                    it.dayGrowth,
+                    it.weekGrowth
+            )
+        }
+    }
+
     suspend fun getActualCurrencyData(): ArrayList<CryptoCurrency> {
         val receiver = CryptoCurrencyReceiver(database!!)
         return receiver.getCurrencyList()

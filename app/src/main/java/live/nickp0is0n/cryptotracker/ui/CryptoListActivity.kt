@@ -28,7 +28,7 @@ class CryptoListActivity : AppCompatActivity() {
         clProgressBar.isVisible = true
         lifecycleScope.launch {
             val list = CryptoCurrencyManager.getActualCurrencyData()
-            CryptoCurrencyManager.addAll(list)
+            CryptoCurrencyManager.updateIfAvailable(list)
             runOnUiThread {
                 clProgressBar.isVisible = false
                 adapter.setItems(list)
