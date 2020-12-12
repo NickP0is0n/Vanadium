@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Vanadium</string>
+    <string name="powered_by">Powered by CoinGecko API</string>
+    <string name="current_price">Текущая цена</string>
+    <string name="remove_from_list">Удалить из списка</string>
+    <string name="daily_growth">Дневной рост</string>
+    <string name="weekly_growth">Недельный рост</string>
+    <string name="_7d">7д:</string>
+    <string name="_24h">24ч:</string>
+    <string name="search">Поиск</string>
+    <string name="add_cryptocurrency">Добавить криптовалюту</string>
+    <string name="search_cryptocurrency">Поиск криптовалюты</string>
+    <string name="add_to_list">Добавить в список</string>
+</resources>
