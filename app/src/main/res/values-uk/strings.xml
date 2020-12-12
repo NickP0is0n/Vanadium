@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Vanadium</string>
     <string name="powered_by">Powered by CoinGecko API</string>
-    <string name="current_price">Поточна ціна</string>
+    <string name="current_price">Поточна вартість</string>
     <string name="remove_from_list">Видалити зі списку</string>
     <string name="daily_growth">Денне зростання</string>
     <string name="weekly_growth">Тижневе зростання</string>
