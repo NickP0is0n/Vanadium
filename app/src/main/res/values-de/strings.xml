@@ -4,7 +4,7 @@
     <string name="current_price">Aktueller Preis</string>
     <string name="remove_from_list">Aus List löschen</string>
     <string name="daily_growth">Tägliches Wachstum</string>
-    <string name="weekly_growth">Wochentliches Wachstum</string>
+    <string name="weekly_growth">7 Tage Wachstum</string>
     <string name="_7d">7T:</string>
     <string name="_24h">24S:</string>
     <string name="search">Suchen</string>
