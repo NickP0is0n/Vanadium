@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">Vanadium</string>
     <string name="powered_by">Powered by CoinGecko API</string>
+    <string name="current_price">Current price</string>
+    <string name="remove_from_list">Remove from list</string>
+    <string name="daily_growth">Daily growth</string>
+    <string name="weekly_growth">Weekly growth</string>
+    <string name="_7d">7d:</string>
+    <string name="_24h">24h:</string>
+    <string name="search">Search</string>
+    <string name="add_cryptocurrency">Add cryptocurrency</string>
+    <string name="search_cryptocurrency">Search cryptocurrency</string>
+    <string name="add_to_list">Add to list</string>
 </resources>
