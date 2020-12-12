@@ -9,7 +9,7 @@
     tools:context=".ui.CryptoListActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/clAddButton"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="55dp"
         android:layout_height="53dp"
@@ -24,6 +24,26 @@
         app:layout_constraintBottom_toBottomOf="@+id/clProgressBar"
         app:layout_constraintEnd_toStartOf="@+id/clProgressBar"
         app:layout_constraintTop_toTopOf="@+id/clProgressBar" />
+
+    <Button
+        android:id="@+id/clRefreshButton"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="55dp"
+        android:layout_height="53dp"
+        android:elevation="21dp"
+        android:onClick="onAddCryptocurrencyButtonClick"
+        android:textAlignment="center"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:icon="@android:drawable/ic_popup_sync"
+        app:iconPadding="8dp"
+        app:iconTint="#1D2E7C"
+        app:iconTintMode="src_atop"
+        app:layout_constraintBottom_toBottomOf="@+id/clAddButton"
+        app:layout_constraintEnd_toStartOf="@+id/clAddButton"
+        app:layout_constraintTop_toTopOf="@+id/clAddButton"
+        app:layout_constraintVertical_bias="0.0" />
 
     <View
         android:id="@+id/mainmenubar"
