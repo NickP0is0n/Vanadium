@@ -9,6 +9,6 @@
     <string name="_24h">24ч:</string>
     <string name="search">Поиск</string>
     <string name="add_cryptocurrency">Добавить криптовалюту</string>
-    <string name="search_cryptocurrency">Поиск криптовалюты</string>
+    <string name="search_cryptocurrency">Поиск криптовалют</string>
     <string name="add_to_list">Добавить в список</string>
 </resources>
