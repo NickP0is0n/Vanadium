@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Vanadium</string>
     <string name="powered_by">Powered by CoinGecko API</string>
-    <string name="current_price">Aktuell Preis</string>
+    <string name="current_price">Aktueller Preis</string>
     <string name="remove_from_list">Aus List löschen</string>
     <string name="daily_growth">Tägliches Wachstum</string>
     <string name="weekly_growth">Wochentliches Wachstum</string>
