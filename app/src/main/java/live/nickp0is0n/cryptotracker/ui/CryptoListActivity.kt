@@ -11,6 +11,7 @@ import drewcarlson.coingecko.CoinGeckoService
 import kotlinx.android.synthetic.main.activity_crypto_list.*
 import kotlinx.coroutines.launch
 import live.nickp0is0n.cryptotracker.R
+import live.nickp0is0n.cryptotracker.database.CryptoCurrencyManager
 import live.nickp0is0n.cryptotracker.models.CryptoCurrency
 
 class CryptoListActivity : AppCompatActivity() {
@@ -21,6 +22,18 @@ class CryptoListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_crypto_list)
         initRecyclerView()
         loadCurrencyList()
+    }
+
+    fun onRefreshButtonClick(view: View) {
+        clProgressBar.isVisible = true
+        lifecycleScope.launch {
+            val list = CryptoCurrencyManager.getActualCurrencyData()
+            CryptoCurrencyManager.addAll(list)
+            runOnUiThread {
+                clProgressBar.isVisible = false
+                adapter.setItems(list)
+            }
+        }
     }
 
     fun onAddCryptocurrencyButtonClick(view: View) {
@@ -57,7 +70,7 @@ class CryptoListActivity : AppCompatActivity() {
 
     private fun loadCurrencyList() {
         val list = getCurrencies()
-        adapter.setItems(getCurrencies())
+        adapter.setItems(list)
     }
 
     private fun getCurrencies(): List<CryptoCurrency> = intent.extras!!["currencyList"] as List<CryptoCurrency>

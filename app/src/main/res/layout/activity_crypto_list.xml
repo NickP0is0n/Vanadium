@@ -31,7 +31,7 @@
         android:layout_width="55dp"
         android:layout_height="53dp"
         android:elevation="21dp"
-        android:onClick="onAddCryptocurrencyButtonClick"
+        android:onClick="onRefreshButtonClick"
         android:textAlignment="center"
         android:textColor="@color/textColorPrimary"
         android:textSize="25sp"
