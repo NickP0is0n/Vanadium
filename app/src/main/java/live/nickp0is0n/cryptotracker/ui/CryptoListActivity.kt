@@ -7,12 +7,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import drewcarlson.coingecko.CoinGeckoService
 import kotlinx.android.synthetic.main.activity_crypto_list.*
 import kotlinx.coroutines.launch
 import live.nickp0is0n.cryptotracker.R
 import live.nickp0is0n.cryptotracker.database.CryptoCurrencyManager
 import live.nickp0is0n.cryptotracker.models.CryptoCurrency
+
 
 class CryptoListActivity : AppCompatActivity() {
     private val adapter = CryptoAdapter()
@@ -30,8 +32,8 @@ class CryptoListActivity : AppCompatActivity() {
             val list = CryptoCurrencyManager.getActualCurrencyData()
             CryptoCurrencyManager.updateIfAvailable(list)
             runOnUiThread {
-                clProgressBar.isVisible = false
                 adapter.setItems(list)
+                clProgressBar.isVisible = false
             }
         }
     }
@@ -64,13 +66,17 @@ class CryptoListActivity : AppCompatActivity() {
     }
 
     private fun initRecyclerView() {
-        cryptoRecyclerView.layoutManager = LinearLayoutManager(this)
+        cryptoRecyclerView.layoutManager =  object : LinearLayoutManager(this) {
+            override fun getExtraLayoutSpace(state: RecyclerView.State): Int {
+                return 300
+            }
+        }
         cryptoRecyclerView.adapter = adapter
     }
 
     private fun loadCurrencyList() {
-        val list = getCurrencies()
-        adapter.setItems(list)
+        val currencyList = getCurrencies()
+        adapter.setItems(currencyList)
     }
 
     private fun getCurrencies(): List<CryptoCurrency> = intent.extras!!["currencyList"] as List<CryptoCurrency>

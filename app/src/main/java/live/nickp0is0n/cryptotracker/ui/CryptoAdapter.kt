@@ -11,6 +11,7 @@ class CryptoAdapter: RecyclerView.Adapter<CryptoViewHolder>() {
     private val cryptocurrencyList = mutableListOf<CryptoCurrency>()
 
     fun setItems(currencies: Collection<CryptoCurrency>) {
+        cryptocurrencyList.clear()
         cryptocurrencyList.addAll(currencies)
         notifyDataSetChanged()
     }
